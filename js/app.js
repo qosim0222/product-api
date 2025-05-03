@@ -47,36 +47,37 @@ productTag.addEventListener("click", (event)=>{
     }
 })  
 
+const btnSeeMore = document.querySelector(".btn-see-more")
+let offset = 0
+const PerpageCount = 190
+
+btnSeeMore.onclick = (e)=>{
+    offset++
+    fetchData(`products?limit=${PerpageCount}&skip=${PerpageCount * offset}`, renderProduct)
+
+}
+
 window.onload = ()=>{
 
     fetchData("products/category-list", renderProductTag)
-    fetchData("products", renderProduct)
+    fetchData(`products?limit=${PerpageCount}&skip=0`, renderProduct)
 }
 
 
 
-
-
-
-
-
-
-
-
-// const title = document.querySelector(".title")
-
-// title.dataset.userCountry = "USA"
-// title.dataset.laylo = "akmalova"
-
-// // console.log(title.dataset.laylo);
-// // console.log(title.dataset.userId);
-// // console.log(title);
-
-// const collectionEl = document.querySelector(".collection")
-
-// // Event delagation
-// collectionEl.addEventListener("click", (event)=>{
-//     if(event.target.tagName === "SPAN"){
-//         title.innerHTML = event.target.innerHTML
+// function renderProductWithCheck(data) {
+//     if (data.products.length === 0) {
+//         btnSeeMore.style.display = "none"
+//         return
 //     }
-// })
+
+//     renderProduct(data)
+// }
+
+
+
+
+
+
+
+
