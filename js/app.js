@@ -49,7 +49,7 @@ productTag.addEventListener("click", (event)=>{
 
 const btnSeeMore = document.querySelector(".btn-see-more")
 let offset = 0
-const PerpageCount = 190
+const PerpageCount = 10
 
 btnSeeMore.onclick = (e)=>{
     offset++
